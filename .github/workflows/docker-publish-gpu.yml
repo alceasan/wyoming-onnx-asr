@@ -6,10 +6,9 @@ name: Docker-gpu
 # documentation.
 
 on:
-  push:
-    branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+  # Solo build manual. Las releases publican únicamente la imagen CPU
+  # (ver docker-publish.yml).
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty

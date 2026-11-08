@@ -6,11 +6,9 @@ name: Docker-gpu-trt
 # documentation.
 
 on:
-  push:
-    # Skip main because it's huge
-#    branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+  # Solo build manual (es muy grande). Las releases publican únicamente
+  # la imagen CPU (ver docker-publish.yml).
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
