@@ -1,15 +1,35 @@
-﻿services:
-  onnx:
+services:
+  wyoming-onnx-asr:
     build:
       context: .
       dockerfile: Dockerfile
-    command: [
-       "--model-en", "nemo-parakeet-tdt-0.6b-v2",
-#       "--model", "onnx-community/whisper-large-v3-turbo",
-      "--uri", "tcp://0.0.0.0:10300"
-    ]
+    image: wyoming-onnx-asr:latest
+    container_name: wyoming-onnx-asr
+    command:
+      - "--model-multilingual"
+      - "nemo-parakeet-tdt-0.6b-v3"
+      # - "Olicorne/parakeet-tdt-0.6b-v3-ultra-onnx"   # needs WYOMING_ONNX_ASR_HF_SUBDIR=auto
+      - "--default-language"
+      - "en"
+      - "-q"
+      - "int8"
+      - "--intra-op-num-threads"
+      - "4"
+      - "--inter-op-num-threads"
+      - "1"
+      - "--uri"
+      - "tcp://0.0.0.0:10300"
     volumes:
       - ./local:/data
-    restart: unless-stopped
     ports:
       - "10300:10300"
+    restart: unless-stopped
+    environment:
+      - ORT_DISABLE_CPU_AFFINITY=1
+      - OMP_NUM_THREADS=1
+      - OPENBLAS_NUM_THREADS=1
+      # - WYOMING_ONNX_ASR_HF_SUBDIR=auto
+      - WYOMING_ONNX_ASR_PARTIAL_INTERVAL=1.0
+      - WYOMING_ONNX_ASR_SILENCE_GUARD=0.15
+      - WYOMING_ONNX_ASR_MAX_TAIL=2.5
+      - WYOMING_ONNX_ASR_TRANSCRIPT_STREAMING=false

@@ -520,16 +520,16 @@ wheels = [
 
 [[package]]
 name = "onnx-asr"
-version = "0.10.1"
+version = "0.11.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "numpy", version = "2.3.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "typing-extensions", version = "4.15.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7c/91/b8ada37004bfea891582046fc6da5505414bd6580720a3daa41bda42fdfa/onnx_asr-0.10.1.tar.gz", hash = "sha256:a2166d827a7ec9f349270f6ab44ef6555d8fee6900c3d3e586c29cf4455c1124", size = 42658, upload-time = "2025-12-30T22:17:33.143Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/78/f6/b154881761a593312f509522f99542acffa2516f7a1df6ddf5660ad4a162/onnx_asr-0.11.0.tar.gz", hash = "sha256:57ad8d9571dc17db95f0daf9ba432b9472383de320c610735850e56b5375a37d", size = 43665, upload-time = "2026-03-23T02:30:57.349Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/46/26/e3b684ac14056c3547f37477d781fdabce92a41322634989fd3a928377ee/onnx_asr-0.10.1-py3-none-any.whl", hash = "sha256:f5501aca889bddae2941ba60e018927e5b5716776483fb4b2fed484025b62b75", size = 121388, upload-time = "2025-12-30T22:17:31.962Z" },
+    { url = "https://files.pythonhosted.org/packages/82/04/bdffd682cc38b43144b6528186c80451f219a05e3fd0eb331a548f455b9a/onnx_asr-0.11.0-py3-none-any.whl", hash = "sha256:142d8b3ce7716684992826a269304f5ce9cf1c0fe704b751358e223f45d2a5cf", size = 138349, upload-time = "2026-03-23T02:30:58.566Z" },
 ]
 
 [package.optional-dependencies]
@@ -928,11 +928,10 @@ wheels = [
 
 [[package]]
 name = "wyoming-onnx-asr"
-version = "0.5.0"
+version = "0.6.0"
 source = { editable = "." }
 dependencies = [
     { name = "onnx-asr", extra = ["hub"] },
-    { name = "soundfile" },
     { name = "wyoming" },
 ]
 
@@ -958,11 +957,10 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "onnx-asr", extras = ["cpu"], marker = "extra == 'cpu'", specifier = ">=0.6" },
-    { name = "onnx-asr", extras = ["hub"], specifier = "==0.10.1" },
+    { name = "onnx-asr", extras = ["cpu"], marker = "extra == 'cpu'", specifier = ">=0.11.0" },
+    { name = "onnx-asr", extras = ["hub"], specifier = "==0.11.0" },
     { name = "onnxruntime-gpu", extras = ["cuda", "cudnn"], marker = "extra == 'gpu'", specifier = ">=1.22.0" },
     { name = "onnxruntime-gpu", extras = ["cuda", "cudnn"], marker = "extra == 'gpu-trt'", specifier = "~=1.22.0" },
-    { name = "soundfile", specifier = ">=0.12.1" },
     { name = "tensorrt-cu12-libs", marker = "extra == 'gpu-trt'", specifier = "==10.9.*" },
     { name = "wyoming", specifier = ">=1.5.3" },
 ]

@@ -1,12 +1,13 @@
 [project]
 name = "wyoming-onnx-asr"
-version = "0.5.0"
+version = "0.7.0"
 description = "Wyoming Server for ONNX ASR"
 readme = "README.md"
 requires-python = ">=3.10.0,<3.14"
 license = { text = "MIT" }
 authors = [
-    { name = "Thomas Boby" }
+    { name = "Thomas Boby" },
+    { name = "Alejandro Ceacero" }
 ]
 keywords = ["wyoming", "onnx", "asr", "stt", "nemo"]
 classifiers = [
@@ -20,13 +21,11 @@ classifiers = [
 ]
 dependencies = [
     "wyoming>=1.5.3",
-    "onnx-asr[hub]==0.10.1",
-
-    "soundfile>=0.12.1",
+    "onnx-asr[hub]==0.11.0",
 ]
 
 [project.urls]
-Homepage = "http://github.com/tboby/wyoming-onnx-asr"
+Homepage = "https://github.com/alceasan/wyoming-onnx-asr"
 
 [tool.setuptools]
 platforms = ["any"]
@@ -57,6 +56,6 @@ check_untyped_defs = true
 disallow_untyped_defs = true
 
 [project.optional-dependencies]
-cpu = ["onnx-asr[cpu]>=0.6"]
+cpu = ["onnx-asr[cpu]>=0.11.0"]
 gpu = ["onnxruntime-gpu[cuda,cudnn]>=1.22.0"]
 gpu-trt = ["onnxruntime-gpu[cuda,cudnn]~=1.22.0", "tensorrt-cu12-libs==10.9.*"]
